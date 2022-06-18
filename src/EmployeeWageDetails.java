@@ -10,20 +10,29 @@ public class EmployeeWageDetails {
 		int fullDayHour = 8;
 		int wagePerDay = 0;
 		int partTimeHours = 4;
-		switch (attendance) {
-		case 0:
-			System.out.println("Employee Absent");
-			System.out.println(wagePerDay);
-			break;
+		int monthlyHours = 0;
+		int monthlySalary = 0;
+		for (int day = 1; day <= 20; day++) {
 
-		case 1:
-			System.out.println("Employee Present for part time hours");
-			wagePerDay = wagePerHour * partTimeHours;
-			System.out.println("Employee's daily wage is:" + wagePerDay);
-			break;
-		default:
-			wagePerDay = wagePerHour * fullDayHour;
-			System.out.println("Employee's daily wage is:" + wagePerDay);
+			switch (attendance) {
+			case 0:
+				System.out.println("Employee is absent");
+				break;
+			case 1:
+				System.out.println("Employee is present");
+				wagePerDay = fullDayHour * wagePerHour;
+				monthlyHours = monthlyHours + fullDayHour;
+				System.out.println("Employee's daily wage is:" + wagePerDay);
+				break;
+			case 2:
+				System.out.println("Employee is present for part time");
+				wagePerDay = partTimeHours * wagePerHour;
+				System.out.println("Employee's daily wage is:" + wagePerDay);
+				break;
+
+			}
+			monthlySalary = monthlySalary + wagePerDay;
+			System.out.println(" Day is: " + day + " Monthly Salary is: " + monthlySalary);
 		}
 	}
 }
